@@ -65,9 +65,9 @@ data "archive_file" "go_code_zip" {
     output_path ="${path.module}/python/hello-world.zip"
 }
 
-resource "aws_lambda_function" "jasper_lambda_function" {
+resource "aws_lambda_function" "jasper_health_lambda_function" {
   filename = "${path.module}/python/hello-world.zip"
-  function_name = "jasper_lambda_function"
+  function_name = "jasper_health_lambda_function"
   role = aws_iam_role.iam_for_lambda.arn
   handler = "hello-world.handler"
   runtime = "python3.11"
@@ -77,7 +77,7 @@ resource "aws_lambda_function" "jasper_lambda_function" {
 
 
 resource "aws_lambda_function_url" "lambda_function_url" { 
-    function_name = aws_lambda_function.jasper_lambda_function.arn
+    function_name = aws_lambda_function.jasper_health_lambda_function.arn
     authorization_type = "NONE"
 }
 
