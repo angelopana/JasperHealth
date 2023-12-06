@@ -38,6 +38,16 @@ Deploy to AWS:
 terraform apply
 ```
 
+### Assumptions & Limitations
+
+As the instructions below are only ment to *publicly expose a lambda function*, instead of using an API gateway, I went in a much simpler route and used Lamnbda Function URL.
+
+This is ment for simple Terraform deployment to
+exposed lambda function return `{ "message": "Hello World!" }` 
+
+As a __==Limitation==__ of not using an API gateway this URL can be Called by all Method types `GET/POST/DELETE/PUT`
+
+
 ---
 
 ## Jasper Take Home Assignment – DevSecOps
